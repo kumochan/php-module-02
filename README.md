@@ -1,6 +1,8 @@
 # php-module-02
 
 ### lession-02
+
+```
 Lý thuyết
     - php debug
     - include và required
@@ -8,3 +10,5 @@ Lý thuyết
 
 Bài tập
     [*Bài tập] Đếm số lần xuất hiện của ký tự trong chuỗi
+
+```
