@@ -1,5 +1,22 @@
 # php-module-02
 
+### lession-06
+```
+1. What? Why, When, How
+    - Abstract class là gì? Là 1 class.
+    - Interface là một "bản thiết kế - cho các methods".
+
+    (*) Tại sao phải dùng abstract class, nó giống và khác class thường ở chỗ nào?
+    (*) Tại sao?
+        - Abstract class định nghĩa các methods, properties giống nhau bản chất.
+        - Interface định nghĩa các methods tên giống nhau, khác nhau về bản chất.
+
+        Abstract và Interface đều định nghĩa các phương thức và bắt lớp con khi kế thừa hoặc implement phải thực thi.
+    (*) Tại sao phải dùng?
+
+```
+
+
 ### lession-05
 
 ```
