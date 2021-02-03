@@ -1,0 +1,19 @@
+{
+   "Nam":{
+      "age":200,
+      "full_name":"Dinh Trong Nam"
+   },
+   "TuanMoi":{
+      "age":20,
+      "full_name":"Nguyen Dinh Tuan"
+   },
+   "ThiDao":{
+      "age":22,
+      "full_name":"Nguyen Thi Dao"
+   },
+   "Hưng":{
+      "age":26,
+      "full_name":"Hưng Đã Có Vợ"
+   },
+   "total":3
+}

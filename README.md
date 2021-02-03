@@ -1,5 +1,36 @@
 # php-module-02
 
+### lession-07
+```
+ Clean Code
+    - Giúp công việc cộng tác nhóm.
+    - Dễ hiểu code hơn, đơn giản dễ đọc.
+    - Dễ thay đổi, bảo trì, cải tiến.
+    - Trực tiếp giải quyết vấn đề.
+    - Không có code trùng lặp.
+    - Thể hiện được ý tưởng về thiết kế.
+
+(*) Các cách thực hành clean code
+    - Đặt tên biến có nghĩa: danh từ (meaningful name)
+    - Đặt tên phương thức: động từ.
+    - Đặt tên đọc được: Không viết tắt, không được là bài văn, tránh ký tự gây nhầm lẫn. Ví dụ 0 và O, I và 1.
+    - Đặt tên Pascal case, camel case, snake case
+    - Review code
+        + 1 methods không được quá 25 dòng code.
+        + Tuân thủ được SOLID (5 nguyên lý trong lập trình hướng đối tượng).
+        + Tuân thủ được DRY (Don't repeat yourself)
+
+(*) - SOLID
+
+Refactoring
+    - Teachnical debut
+    - Tại sao: Code khoa học hơn. Vẫn giữ được giá trị code. Dễ đọc, dễ tiếp cận.
+
+Coding convention
+
+
+```
+
 ### lession-06
 ```
 1. What? Why, When, How
