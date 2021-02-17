@@ -1,0 +1,13 @@
+.table-list {
+    width: 600px;
+    border: 1px solid rgba(255, 0, 0, 0.33);
+    border-collapse: collapse;
+}
+
+tr, th, td {
+    border: 1px solid rgba(255, 0, 0, 0.18);
+}
+
+.status-bill {
+    margin-top: 5px !important;
+}
