@@ -2,12 +2,12 @@
 
 require('Recursion.php');
 
-
+echo '<pre>';
 $numbers = range(1, 200, 5); 
 
 $number = 31; 
 if (RecursionSearch::binarySearch($numbers, $number, 0, count($numbers) - 1) !== FALSE) { 
-    echo "$number Found \n"; 
+    print_r("$number Found \n"); 
 } else { 
     echo "$number Not found \n"; 
 } 
