@@ -2,10 +2,12 @@
 ob_start();
 
 use App\Controller\BillController;
+use App\Controller\ProductController;
 
 require __DIR__ . '/vendor/autoload.php';
 $page = isset($_REQUEST['page']) ? $_REQUEST['page'] : '';
 $billController = new BillController();
+$productController = new ProductController();
 ?>
 
 <html lang="en">
@@ -32,6 +34,16 @@ $billController = new BillController();
             $id = $_REQUEST['id'];
             $billController->show($id);
             break;
+
+        // Neu o trang index co bien page va gia tri bang product-list thi goi vao product controller, ham index
+        case 'product-list':
+            $productController->index();
+            break;
+
+        case 'create_product':
+            $productController->create_product();
+            break;
+            
         case 'search-bill':
             $product_name = isset($_REQUEST['product_name']) ? $_REQUEST['product_name'] : "";
             $oder_code = isset($_REQUEST['order_code']) ? $_REQUEST['order_code'] : "";
