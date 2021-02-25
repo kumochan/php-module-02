@@ -3,11 +3,13 @@ ob_start();
 
 use App\Controller\BillController;
 use App\Controller\ProductController;
+use App\Controller\DashboardController;
 
 require __DIR__ . '/vendor/autoload.php';
 $page = isset($_REQUEST['page']) ? $_REQUEST['page'] : '';
 $billController = new BillController();
 $productController = new ProductController();
+$dashboardControll = new DashboardController();
 ?>
 
 <html lang="en">
@@ -24,9 +26,13 @@ $productController = new ProductController();
 
 <body>
     <a href="index.php?page=list-bill">Danh sach hoa don</a>
+    <br />
+    <a href="index.php?page=product-list">Danh sach san pham</a>
+    <br />
+    <a href="index.php?page=dashboard">Show profits</a>
     <?php
     switch ($page) {
-        // bill
+            // bill
         case 'list-bill':
             $billController->index();
             break;
@@ -35,7 +41,7 @@ $productController = new ProductController();
             $billController->show($id);
             break;
 
-        // Neu o trang index co bien page va gia tri bang product-list thi goi vao product controller, ham index
+            // Neu o trang index co bien page va gia tri bang product-list thi goi vao product controller, ham index
         case 'product-list':
             $productController->index();
             break;
@@ -43,7 +49,11 @@ $productController = new ProductController();
         case 'create_product':
             $productController->create_product();
             break;
-            
+
+        case 'dashboard':
+            $dashboardControll->showProfit();
+            break;
+
         case 'search-bill':
             $product_name = isset($_REQUEST['product_name']) ? $_REQUEST['product_name'] : "";
             $oder_code = isset($_REQUEST['order_code']) ? $_REQUEST['order_code'] : "";
@@ -54,4 +64,5 @@ $productController = new ProductController();
     ob_end_flush();
     ?>
 </body>
+
 </html>
