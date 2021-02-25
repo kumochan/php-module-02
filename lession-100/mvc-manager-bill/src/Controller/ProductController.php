@@ -21,25 +21,60 @@ class ProductController
         include "src/View/product/product-list.php";
     }
 
-    public function create_product()
+    public function create()
     {
-        //$name, $category_id, $price_input, $price_sale, $expried_date, $packed_type
-        //('Cà phê Buôn Mê Thuật', 1, 50000, 180000, '2021-02-12', 'Túi');
         if ($_SERVER['REQUEST_METHOD'] == 'GET') {
             include "src/View/product/product-show-create.php";
         } else if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-            $name = $_REQUEST['name'];
-            $category_id = $_REQUEST['category_id'];
-            $price_input = $_REQUEST['price_input'];
-            $price_sale = $_REQUEST['price_sale'];
-            $expried_date = $_REQUEST['expried_date'];
-            $packed_type = $_REQUEST['packed_type'];
-            $result = $this->productModel->create_product($name, $category_id, $price_input, $price_sale, $expried_date, $packed_type);
-            $products = $this->productModel->getAll();
-            //var_dump($products);
-            header("location:index.php?page=product-list");
-        }
-        
+            $product_code = $_REQUEST['product_code'];
+            $product_name = $_REQUEST['product_name'];
+            $list_price = $_REQUEST['list_price'];
+            $discontinued = $_REQUEST['discontinued'];
+            $standard_cost = $_REQUEST['standard_cost'];
+            $category = $_REQUEST['category'];
+            $supplier_ids = $_REQUEST['supplier_ids'];
 
+            $result = $this->productModel->create_product(
+                $product_code,
+                $product_name,
+                $list_price,
+                $discontinued,
+                $standard_cost,
+                $category,
+                $supplier_ids
+            );
+            $this->redirectToList();
+        }
+    }
+
+    public function details()
+    {
+        if ($_SERVER['REQUEST_METHOD'] == 'GET') {
+            $isNumberic = is_numeric( (int)isset($_REQUEST['id']));
+            $product_id = isset($_REQUEST['id']);
+            if ( $product_id && $isNumberic) {
+                $product = $this->productModel->findById($product_id);
+                $supplier_names = $this->productModel->getDistinceSupplier();
+                include "src/View/product/product-details.php";
+            } else {
+                $this->redirectToList();
+            }
+        } else if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+            // Update status
+
+            // Update gia
+
+            // Update so luong san pham
+
+            // Update abc...
+
+            //header("location:index.php?page=product-list");
+        }
+    }
+
+    private function redirectToList()
+    {
+        $products = $this->productModel->getAll();
+        header("location:index.php?page=product-list");
     }
 }

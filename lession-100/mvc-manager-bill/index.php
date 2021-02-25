@@ -45,9 +45,11 @@ $dashboardControll = new DashboardController();
         case 'product-list':
             $productController->index();
             break;
-
-        case 'create_product':
-            $productController->create_product();
+        case 'product-create':
+            $productController->create();
+            break;
+        case 'product-details':
+            $productController->details();
             break;
 
         case 'dashboard':
