@@ -1,0 +1,52 @@
+Thiết kế Database quản lý một cửa hàng sách.
+	
+1. Phân tích thông tin.
+
+Khi được quản lý yêu cầu nhập (mua) sách thì người nhân viên liên hệ với nhà cung cấp để bàn về hợp đồng mua bán sách bảo gồm các thông tin như. thể loại, số lượng, của nhà xuất bản nào, ngày nhập là ngày bao nhiêu..
+
+- Sau khi nhân viên nhận sách từ nhà cung cấp và căn cứ theo giấy tờ (phiếu nhập) để  tiến hành nhập sách vào kho.
+
+- Khi có khách hàng đến mua sách người ta có yêu cầu mua sách của tác giả nào, thể loại nào thì ta cần có dữ liệu để phục vụ khách hàng. và xuất hóa đơn.
+
+- lập báo cáo doanh thu theo định kỳ.
+
+2. Xác định các thực thể và thuộc tính.
+
+	+ Sách (book_id, mã sách isbn, tên sách, mã tác giả, mã thể loại, mã nhà xuất bản, năm xuất bản);
+	+ tác giả (mã tác giả, tên tác giả, website, mô tả);
+	+ thể loại (mã thể loại, tên thể loại, mô tả)
+	+ Nhà xuất bản (mã nhà xuất bản, tên nhà xuất bản, địa chỉ, email);
+	+ Nhà cung cấp (mã nhà cung cấp, tên nhà cung cấp, địa chỉ, sdt liên hệ);
+	+ Nhân viên (mã nhân viên, tên nhân viên, ngày sinh, sdt liên hệ, mức lương);
+	+ Khách hàng (mã khác hàng, tên khách hàng, địa chỉ, sdt liên hệ);
+	+ phiếu nhập (mã phiếu nhập, mã nhân viên, mã nhà cung cấp, ngày nhập);
+	+ chi tiết phiếu nhập (mã phiếu nhập, mã sách, số lượng, giá);
+	+ Hóa đơn bán hàng (mã hóa đơn, mã nhân viên, mã khách hàng, ngày xuất);
+	+ chi tiết hóa đơn bán hàng (mã hóa đơn, mã sách, số lượng, đơn giá);
+	
+	
+3. các mối quan hệ:
+
+	+ một loại sách thì chỉ do một tác giả chính viết, một tác giả thì có viết nhiều quyển sách => quan hệ sách(1,1) - (1,n) tác giả.
+	+ một loại sách thì chỉ thuộc một thể loại còn một thể loại có nhiều quyển sách => quan hệ sách (1,1) - (1,n) thể loại.
+	+ một loại sách có thể của một nhà xuất bản, nhà xuất bản thì có thể xuất bản 1 hay nhiều sách => quan hệ sách (1,1) - (1,n) nhà xuất bản.
+	+ một loại sách thì có thể có một hay nhiều phiếu nhập, mỗi phiếu nhập có thể có một hay nhiều loại sách => quan hệ (n - n). thông qua chi tiết phiếu nhập.
+	+ Một loại sách thì có một hay nhiều hóa đơn, mỗi hóa đơn thì có một hay nhiều loại sách => quan hệ (n- n).
+	+ Mỗi phiếu nhập chỉ có một nhà cung cấp, một nhà cung cấp thì có một hoặc nhiều phiếu nhập => quan hệ 1-n;
+	+ Mỗi phiếu nhập thì chỉ có một nhân viên viết, và mỗi nhân viên có thể viết nhiều phiếu nhập => quan hệ 1 - n;
+	+ Mỗi hóa đơn được viết bởi một nhân viên và mỗi nhân viên viết nhiều hóa đơn.
+	+ Mỗi hóa đơn chỉ viết cho một khách hàng và mỗi khách hàng có thể viết nhiều hóa đơn => quan hệ 1 - n;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
