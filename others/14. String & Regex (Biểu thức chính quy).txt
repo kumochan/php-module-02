@@ -1,0 +1,49 @@
+14. String & Regex (Biểu thức chính quy)
+
+	- String: chuỗi.
+		+ Hàm có sẵn của PHP để thao tác với chuỗi
+			- strlen: độ dài của chuỗi:
+				$vn = "Việt Nam" => strlen($vn) == 8;
+			- str_word_count: đếm số từ trong chuỗi.
+				$wc = "Cộng hoà Việt Nam"; str_word_count($wc) == 4;
+			- strrev: Đảo ngược chuỗi
+				$rev = 'Việt Nam'; strrev($rev) == 'maN têiV';
+			- strpos: Tìm kiếm chuỗi (kiểm tra giá trị có tồn tại trong chuỗi không)
+				$str = "Cộng hoà xã hội chủ nghĩa Việt Nam"; strpos($str, 'Việt Nam') == 6;
+			- str_split: Chuyển chuỗi thành mảng theo kí tự
+				$str = "Cộng hoà xã hội chủ nghĩa Việt Nam";
+				str_split(" ", $str) == array('Cộng', 'hoà'....);
+
+	- Regex khái niệm:
+		+ Miêu tả chuỗi theo quy tắc nhât định
+		+ 1 biểu thức gồm 1 nhóm các kí hiệu, ký tự để mô tả/tìm kiếm chỗi nào đó.
+
+	- Regex tác dụng:
+		+ Validation dữ liệu input từ người dùng/dữ liệu cần kiểm tra tính hợp lệ;
+		+ Tìm kiếm chuỗi/ký tự trong văn bản;
+		+ Thay thế dữ liệu chuỗi trong văn bản;
+
+	- Nếu không dùng thì sao?
+		+ Dùng hàm_có_sẵn của PHP => Không phải trường hợp nào cũng có sẵn hàm!
+		+ Chậm (viết nhiều code để xử lý 1 vấn đề) => Ví dụ kiểm tra hợp lệ của (email)
+			- Kiểm tra chữ cái
+			- Số
+				=> ký tự hoa hoặc thường, số.
+			- Kí tự đặc biệt
+				=> không cho phép nhập ký tự đặc biệt.
+			- Phải có @
+				=> bắt buộc có ký tự @
+				=> @ đặt ở đầu tiên (?). Phia trước @ có it nhất 1 ký tự.
+			- Đằng sau @ phải có dấu "."
+				=> Chấm 3 cái được không?
+				=> Sau dấu . có chữ cái.
+				=> 
+		=> nên viết Regex cho code gọn, ngắn.		
+
+Tìm xem string "Regular Expression" có trong đoạn văn sau hay không?
+"Biểu thức chính quy (Regular Expression)  thường được gọi là Regex hoặc RegExp. Là thuật toán khớp mẫu mạnh mẽ có thể được thực hiện trong một biểu thức. Nó giúp bạn trong tiết kiệm được rất nhiều thời gian khi xây dựng các trang web động.
+
+Hầu hết các ngôn ngữ lập trình đều hỗ trợ Regex như Javascript, PHP, Java... Thậm chí RegExp còn rất phổ biến trong các ứng dụng, công cụ khác nhau như rewrite URL, tìm kiếm và thay thế trong các IDE..."		
+
+	- strpos
+	- regex

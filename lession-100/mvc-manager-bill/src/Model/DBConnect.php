@@ -10,7 +10,7 @@ class DBConnect
 
     public function __construct()
     {
-        $this->dsn = 'mysql:host=127.0.0.1;dbname=classicmodel';
+        $this->dsn = 'mysql:host=127.0.0.1;dbname=northwind';
         $this->username = 'root';
         $this->password = '12345678';
     }

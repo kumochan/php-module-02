@@ -25,7 +25,6 @@ class BillModel
     {
         $sql = "Select * from v_bill
                 WHERE orderNumber = :id";
-        //$sql = "Select * from orders where orderNumber = :orderNumber ";
         $stmt = $this->database->prepare($sql);
         $stmt->bindParam(':id', $id);
         $stmt->execute();
@@ -36,8 +35,7 @@ class BillModel
     {
         $sql = "select * from v_bill";
 
-        if (!empty($product_name) || !empty($order_number) || !empty($price))
-        {
+        if (!empty($product_name) || !empty($order_number) || !empty($price)) {
             $sql = "select * from v_bill where productName = :product_name or orderNumber =:order_number or buyPrice =:price ";
         }
 
@@ -49,11 +47,11 @@ class BillModel
         return $stmt->fetchAll();
     }
 
-//    public function totalPriceOrder($id)
-//    {
-//
-//    }
-//
+    //    public function totalPriceOrder($id)
+    //    {
+    //
+    //    }
+
     public function updateStatus($id, $status)
     {
         $sql = "update orders SET status =:status where orderNumber =:id ";

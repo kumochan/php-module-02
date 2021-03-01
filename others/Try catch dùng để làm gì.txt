@@ -1,0 +1,127 @@
+Try catch dùng để làm gì?
+	- Xử lý ngoại lệ => Định nghĩa
+	- Chương trình thực hiện theo nghiệp vụ của mình => Tác dụng (1)
+		+ Hiển thị thông báo => (1)
+
+	- Cho mình biết chương trình lỗi chỗ nào, file nào, dòng nào, ở đoạn code xử lý chức năng - nghiệp vụ nào => 
+
+	// Ví dụ 01
+	try {
+		// Đọc file .json
+		Đọc_file();
+
+		// Tìm kiếm ông nào tên là Dương ở trong file
+		Tìm_Tên_Dương();
+
+		if(Nếu có ông tên là Dương thì +200 điểm học tập)
+		{
+			Cộng_điểm($điểm);
+
+			//Ghi dữ liệu điểm của Dương (mới) vào file
+			Ghi_dữ_liệu_vào_file ();
+		} else {
+			Ghi_dữ_liệu_của_Dương_vào_file();
+		}
+
+	} catch (\Exception ex) {
+		throw (ex->getMessage());
+	} finally {
+		// Luôn chạy bất kể xảy ra trường hợp try hay catch.
+	}
+
+	public function Ghi_dữ_liệu_vào_file () {
+		// code
+	};
+
+	public function Đọc_file () {
+		// code
+	};
+
+	public function Tìm_Tên_Dương()
+	{
+		// code
+	}
+
+	public function Cộng_điểm($điểm)
+	{
+		// code
+	}
+	
+	public function Ghi_dữ_liệu_của_Dương_vào_file()
+	{
+		// code
+	}
+
+
+	// Ví dụ 02
+	public function Payment()
+	{
+		try {
+			// code thanh toán mua hàng
+
+			// Thành công
+		} catch (\PaymentException ex) {
+			// Thất bại thanh toán
+			$ex->lấy-thông-báo;
+			$ex->lấy-mã-lỗi;
+			Ghi_thông_tin_lỗi_vào_sever();
+		} catch (\OrderException ex) {
+			// Thất bại Order (mua hàng)
+			$ex->lấy-thông-báo; (= 1000)
+			$ex->lấy-mã-lỗi; ('Đặt hàng lỗi')
+		} finally {
+			//Thành công hay thất bại
+			Email_cho_các_bên_liên_quan();
+		}
+	}
+
+	public funtion PaymentException extends Exception {
+		// code định nghĩa mã lỗi
+			$error_code = 500;
+		// code định nghĩa thông báo
+			$message = 'Payment lỗi';
+	}
+
+	public funtion OrderException extends Exception {
+		// code định nghĩa mã lỗi cho đặt hàng
+			$error_code = 1000;
+		// code định nghĩa thông báo cho đặt hàng 
+			$message = 'Đặt hàng lỗi';
+	}
+
+
+	- Hiển thị chính xác thông điệp lỗi => Các loại lỗi khác nhau;
+		+ Custome exception => Dùng khi nào? Để làm gì?
+			- Thay đổi custome thông báo!
+			- Thông báo 1 nghiệp vụ lỗi được chỉ định trước.
+
+	- Thay đổi luồng chương trình chạy nếu xảy ra lỗi cụ thể =>
+
+	try {
+
+		// Xử lý nghiệp vụ.
+		// Gửi tin nhắn marketing cho khách hàng thân thiết
+		sendSMS($users);
+
+	} catch (\Exception $ex) {
+
+		// luồng 01: Nếu không thực hiện được nghiệp vụ thì chạy code catch.
+		sendEmail($all);
+		wirteLogs($ex->getMessage());
+		notify($admins);
+
+		// luồng 02:  Gửi email cho nhân viên biết là không send được sms cho KH-X
+		sendEmailToEmployee($kh-x);
+	}
+
+Ngoại lệ là gì?
+	- Những gì chưa biết trước.
+
+Bài tập về nhà cho lớp @channel
+	Đếm số ký tự trong chuỗi
+	Đếm số chuỗi con xuất hiện trong văn bản
+	Đọc bài về độ phức tạp thuật toán
+
+	+ Dữ liệu tăng dần => performance thấp => Quan tâm tới thuật toán xử lý.
+	+ 
+
