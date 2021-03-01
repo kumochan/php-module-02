@@ -17,7 +17,6 @@ class DashboardController
     {
         // Lấy tất hoá đơn từ DB ra.
         $profits = $this->dashboardModel->showProfit();
-
         include "src/View/dashboard/dashboard.php";
     }
 

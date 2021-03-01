@@ -10,7 +10,10 @@ class DBConnect
 
     public function __construct()
     {
+        // Dashboard controller
         $this->dsn = 'mysql:host=127.0.0.1;dbname=northwind';
+        
+        //$this->dsn = 'mysql:host=127.0.0.1;dbname=coffee_shop';
         $this->username = 'root';
         $this->password = '12345678';
     }

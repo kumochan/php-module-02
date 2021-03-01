@@ -37,6 +37,23 @@ class ProductModel
         return $stmt->fetchAll();
     }
 
+    
+    public function createProduct($product_code, $product_name, 
+                    $list_price, $discontinued, $standard_cost, $category, $supplier_ids)
+    {
+        $sql = "CALL proc_create_product(:product_code, :product_name, :list_price, :discontinued, :standard_cost, :category, :supplier_ids);";
+        $stmt = $this->database->prepare($sql);
+        $stmt->bindParam(":product_code", $product_code);
+        $stmt->bindParam(":product_name", $product_name);
+        $stmt->bindParam(":list_price", $list_price);
+        $stmt->bindParam(":discontinued", $discontinued);
+        $stmt->bindParam(":standard_cost", $standard_cost);
+        $stmt->bindParam(":category", $category);
+        $stmt->bindParam(":supplier_ids", $supplier_ids);
+        $stmt->execute();
+        return $stmt->fetchAll();
+    }
+
     public function create_product($product_code, $product_name, 
                                     $list_price, $discontinued, $standard_cost, $category, $supplier_ids)
     {
