@@ -14,9 +14,16 @@ class DashboardModel
 
     public function showProfit()
     {
-        $sql = "select year(orderDate) as year, sum(quantityOrdered * priceEach) as total from orders inner join orderdetails on orders.orderNumber = orderdetails.orderNumber where status = 'shipped' group by year having year > 2003";
+        //$sql = "select * from v_categories_count";
+        $sql = "call proc_categories_count(:category_total);";
+        $total = 3;
         $stmt = $this->database->prepare($sql);
+        $stmt->bindParam(":category_total", $total);
         $stmt->execute();
         return $stmt->fetchAll();
+
+        // $stmt = $this->database->prepare($sql);
+        // $stmt->execute();
+        // return $stmt->fetchAll();
     }
 }

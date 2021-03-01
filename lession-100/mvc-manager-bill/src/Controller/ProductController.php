@@ -34,7 +34,7 @@ class ProductController
             $category = $_REQUEST['category'];
             $supplier_ids = $_REQUEST['supplier_ids'];
 
-            $result = $this->productModel->create_product(
+            $result = $this->productModel->createProduct(
                 $product_code,
                 $product_name,
                 $list_price,

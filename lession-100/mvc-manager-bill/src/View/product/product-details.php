@@ -32,6 +32,6 @@
 
 
 
-        <input type="submit" value="Update status" />
+        <input type="submit" value="Change company" />
     </form>
 </div>
