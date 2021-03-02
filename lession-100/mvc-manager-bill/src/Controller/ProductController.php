@@ -2,15 +2,18 @@
 
 namespace App\Controller;
 
+use App\Model\SupplierModel;
 use App\Model\ProductModel;
 
 class ProductController
 {
     protected $productModel;
+    protected $supplierModel;
 
     public function __construct()
     {
         $this->productModel = new ProductModel();
+        $this->supplierModel = new SupplierModel();
     }
 
     public function index()
@@ -24,6 +27,8 @@ class ProductController
     public function create()
     {
         if ($_SERVER['REQUEST_METHOD'] == 'GET') {
+            $suppliers = $this->supplierModel->getAll();
+            //var_dump($suppliers[0]); die();
             include "src/View/product/product-show-create.php";
         } else if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $product_code = $_REQUEST['product_code'];
